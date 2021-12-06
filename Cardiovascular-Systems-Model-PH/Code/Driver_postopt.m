@@ -18,7 +18,7 @@ Init = data.Init;
 pars = exp(pars); %parameters are the optimize values mix in with non optimize parameters
 
 % OR load nominal parameters
-% [pars, Init,low,hi,qtot] = load_global_PH(data) 
+% [pars, Init,low,hi,qtot] = load_global_PH(data);
 % pars = exp(pars);
 % data.CO = qtot;
 %%
@@ -139,7 +139,12 @@ for i = 1:NC % go through loop NC times
    psv = Vsv/Csv; % systemic veins
    ppa = Vpa/Cpa; % pulmonary arteries
    ppv = Vpv/Cpv; % pulmonary veins
-
+    
+   % pre-allocation
+   Era = zeros(1,length(tdc));
+   Ela = Era;
+   Erv = Era;
+   Elv = Era;
    % Heart elastance
    for w = 1:length(tdc)
        Era(w)  = ElastanceAtrium(tdc(w)-tdc(1),EMra,Emra,Trra,tcra,Tcra,T); % Right atrium elastance
@@ -351,7 +356,7 @@ ylim([round(data.CO)-2 round(data.CO)+2])
 xlim(Xlimits);
 hold off;
 
-h = figure(1);
+% h = figure(1);
 % h.Position = [379   778   951   552]; 
 % legend off
 

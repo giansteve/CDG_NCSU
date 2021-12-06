@@ -4,7 +4,8 @@
 % the model predictions compared to the static and dynamics data.
 
 %
-clear; clc; close all;
+clear; clc; 
+% close all;
 % set graphic preference
 set(0,'DefaultFigureWindowStyle','default')
 set(groot, 'defaultAxesTickLabelInterpreter','latex');

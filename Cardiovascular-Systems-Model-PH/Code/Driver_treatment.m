@@ -372,7 +372,7 @@ xlabel('time (s)')
 ylim([round(data.CO)-2 round(data.CO)+2])
 hold off;
 
-h = figure(2);
+% h = figure(2);
 % h.Position = [379   778   951   552]; 
 % legend off
 
