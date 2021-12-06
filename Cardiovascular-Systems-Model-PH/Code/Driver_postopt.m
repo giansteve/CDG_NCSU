@@ -1,4 +1,4 @@
- % solves the model and plots solutions against data
+% solves the model and plots solutions against data
 % DRIVERBASIC.M
 
 function [p,V,q] = Driver_postopt(PATIENT,RESIDUAL)
@@ -111,7 +111,7 @@ dt = data.dt;
 NC = data.NC;
 
 k1 = 1; % index of first time step in first period
-k2 = round(T/dt)+k1; %index of last time step in first period
+k2 = round(T/dt)+k1; % index of last time step in first period
 
 for i = 1:NC % go through loop NC times
 
@@ -121,9 +121,9 @@ for i = 1:NC % go through loop NC times
 
    tdc = td(k1:k2);  %current time
 
-   options=odeset('RelTol',REL_TOL, 'AbsTol',ODE_TOL);       %sets how accurate the ODE solver is
-   sol = ode15s(@modelBasic,tdc,Init,options,pars,tdc(1),T); %solves the ODE uses modelBasic
-   sols= deval(sol,tdc);                                     %interpolates solution at data times
+   options=odeset('RelTol',REL_TOL, 'AbsTol',ODE_TOL);       % sets how accurate the ODE solver is
+   sol = ode15s(@modelBasic,tdc,Init,options,pars,tdc(1),T); % solves the ODE uses modelBasic
+   sols= deval(sol,tdc);                                     % interpolates solution at data times
 
    % extract solutions
    Vsa  = sols(1,:)';  % systemic arteries
@@ -191,13 +191,13 @@ for i = 1:NC % go through loop NC times
       if ppv(j) > pla(j)
        qpv(j) = (ppv(j)-pla(j))/Rpv;
       end
-   end;
+   end
     
     % save solution
     psaS  = [psaS  psa(1:end-1)'];  % systemic arteries
     psvS  = [psvS  psv(1:end-1)'];  % systemic veins
     ppaS  = [ppaS  ppa(1:end-1)'];  % pulmonary arteries
-    ppvS  = [ppvS  ppv(1:end-1)'];  % puylmonary veins
+    ppvS  = [ppvS  ppv(1:end-1)'];  % pulmonary veins
     praS  = [praS  pra(1:end-1)'];  % right atrium
     plaS  = [plaS  pla(1:end-1)'];  % left atrium
     prvS  = [prvS  prv(1:end-1)'];  % right ventricle
@@ -208,7 +208,7 @@ for i = 1:NC % go through loop NC times
     VsaS   = [VsaS  Vsa(1:end-1)']; % systemic arteries
     VsvS   = [VsvS  Vsv(1:end-1)']; % systemic veins
     VpaS   = [VpaS  Vpa(1:end-1)']; % pulmonary arteries
-    VpvS   = [VpvS  Vpv(1:end-1)']; % puylmonary veins
+    VpvS   = [VpvS  Vpv(1:end-1)']; % pulmonary veins
     VraS   = [VraS  Vra(1:end-1)']; % right atrium
     VlaS   = [VlaS  Vla(1:end-1)']; % left atrium
     VrvS   = [VrvS  Vrv(1:end-1)']; % right ventricle
@@ -237,7 +237,7 @@ end
 psaS  = [psaS  psa(end)];  % systemic arteries
 psvS  = [psvS  psv(end)];  % systemic veins
 ppaS  = [ppaS  ppa(end)];  % pulmonary arteries
-ppvS  = [ppvS  ppv(end)];  % puylmonary veins
+ppvS  = [ppvS  ppv(end)];  % pulmonary veins
 praS  = [praS  pra(end)];  % right atrium
 plaS  = [plaS  pla(end)];  % left atrium
 prvS  = [prvS  prv(end)];  % right ventricle
@@ -248,7 +248,7 @@ ElaS  = [ElaS  Ela(end)];
 VsaS   = [VsaS  Vsa(end)]; % systemic arteries
 VsvS   = [VsvS  Vsv(end)]; % systemic veins
 VpaS   = [VpaS  Vpa(end)]; % pulmonary arteries
-VpvS   = [VpvS  Vpv(end)]; % puylmonary veins
+VpvS   = [VpvS  Vpv(end)]; % pulmonary veins
 VraS   = [VraS  Vra(end)]; % right atrium
 VlaS   = [VlaS  Vla(end)]; % left atrium
 VrvS   = [VrvS  Vrv(end)]; % right ventricle
@@ -267,7 +267,7 @@ qpvS  = [qpvS  qpv(end)];  % flow into left atrium (pulmonary veins)
 
 Xlimits =  [tdc(1) tdc(end)];
 
-figure('Name',strcat('Pat',num2str(PATIENT),'_res',num2str(RESIDUAL)))
+figure('Name',strcat('PAT',num2str(PATIENT),'_RES',num2str(RESIDUAL)))
 subplot(3,3,1); hold on;
 plot(tdc,pla,'r','LineWidth',1);
 % set(gca,'FontSize',24);

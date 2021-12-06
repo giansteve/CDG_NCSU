@@ -289,64 +289,64 @@ qpvS  = [qpvS  qpv(end)];  % flow into left atrium (pulmonary veins)
 
 Xlimits =  [tdc(1) tdc(end)];
 
-figure(2); clf;
+figure('Name',strcat('PAT',num2str(PATIENT),'_TREATM',num2str(TREATMENT)))
 subplot(3,3,1); hold on;
-plot(tdc,pla,'r','LineWidth',3.2);
-set(gca,'FontSize',24);
+plot(tdc,pla,'r','LineWidth',1);
+% set(gca,'FontSize',24);
 ylabel('pla (mmHg)');
 xlim(Xlimits);
 hold off;
 
 subplot(3,3,2); hold on;
-plot(tdc,plv,'r','LineWidth',3.2);
-set(gca,'FontSize',24);
+plot(tdc,plv,'r','LineWidth',1);
+% set(gca,'FontSize',24);
 ylabel('plv (mmHg)');
 xlim(Xlimits);
 hold off;
 
 subplot(3,3,3); hold on;
-plot(tdc,psa,'r','LineWidth',3.2);
-set(gca,'FontSize',24);
-plot(tdc,data.pSAM*ones(size(tdc)),'--k','LineWidth',3.2);
-plot(tdc,data.pSAm*ones(size(tdc)),'--k','LineWidth',3.2);
+plot(tdc,psa,'r','LineWidth',1);
+% set(gca,'FontSize',24);
+plot(tdc,data.pSAM*ones(size(tdc)),'--k','LineWidth',1);
+plot(tdc,data.pSAm*ones(size(tdc)),'--k','LineWidth',1);
 ylabel('psa (mmHg)');
 xlim(Xlimits);
 hold off;
 
 subplot(3,3,4); hold on;
-plot(tdc,psv,'r','LineWidth',3.2);
-set(gca,'FontSize',24);
+plot(tdc,psv,'r','LineWidth',1);
+% set(gca,'FontSize',24);
 ylabel('psv (mmHg)');
 xlim(Xlimits);
 hold off;
 
 subplot(3,3,5); hold on;
-plot(tdc,pra,'r','LineWidth',3.2);
+plot(tdc,pra,'r','LineWidth',1);
 plot(tdc, max(data.pRA)*ones(size(tdc)), '--k', 'LineWidth', 2);
 plot(tdc, min(data.pRA)*ones(size(tdc)), '--k', 'LineWidth', 2);
-plot(tdc,data.pRA,'k','LineWidth',3.2);
-set(gca,'FontSize',24);
+plot(tdc,data.pRA,'k','LineWidth',1);
+% set(gca,'FontSize',24);
 ylabel('pra (mmHg)');
 xlim(Xlimits);
 hold off;
 
 subplot(3,3,6); hold on;
-plot(tdc,prv,'r','LineWidth',3.2);
+plot(tdc,prv,'r','LineWidth',1);
 plot(tdc, max(data.pRV)*ones(size(tdc)), '--k', 'LineWidth', 2);
 plot(tdc, min(data.pRV)*ones(size(tdc)), '--k', 'LineWidth', 2);
-plot(tdc,data.pRV,'k','LineWidth',3.2);
+plot(tdc,data.pRV,'k','LineWidth',1);
 xlim(Xlimits);
-set(gca,'FontSize',24);
+% set(gca,'FontSize',24);
 ylabel('prv (mmHg)');
 hold off;
 
 
 subplot(3,3,7);hold on;
-plot(tdc,ppa,'r','LineWidth',3.2);
+plot(tdc,ppa,'r','LineWidth',1);
 plot(tdc, max(data.pPA)*ones(size(tdc)), '--k', 'LineWidth', 2);
 plot(tdc, min(data.pPA)*ones(size(tdc)), '--k', 'LineWidth', 2);
-plot(tdc,data.pPA,'k','LineWidth',3.2);
-set(gca,'FontSize',24);
+plot(tdc,data.pPA,'k','LineWidth',1);
+% set(gca,'FontSize',24);
 ylabel('ppa (mmHg)');
 xlabel('time (s)');
 xlim(Xlimits);
@@ -354,9 +354,9 @@ hold off;
     
     
 subplot(3,3,8);hold on;
-plot(tdc,mean(ppv)*ones(size(tdc)),'r','LineWidth',3.2);
+plot(tdc,mean(ppv)*ones(size(tdc)),'r','LineWidth',1);
 plot(tdc, min(data.pPW)*ones(size(tdc)), '--k', 'LineWidth', 2);
-set(gca,'FontSize',24);
+% set(gca,'FontSize',24);
 ylabel('ppv (mmHg)');
 xlabel('time (s)')
 ylim([mean(ppv)*.9 , mean(ppv)*1.1])
@@ -364,16 +364,17 @@ xlim(Xlimits);
 hold off;
 
 subplot(3,3,9);hold on;
-plot(tdc,ones(size(tdc)).*COsS(end),'r','LineWidth',3.2);
-plot(tdc,ones(size(tdc)).*data.CO,'--k','LineWidth',3.2);
-set(gca,'FontSize',24);
+plot(tdc,ones(size(tdc)).*COsS(end),'r','LineWidth',1);
+plot(tdc,ones(size(tdc)).*data.CO,'--k','LineWidth',1);
+% set(gca,'FontSize',24);
 ylabel('CO (mL/sec)');
 xlabel('time (s)')
 ylim([round(data.CO)-2 round(data.CO)+2])
 hold off;
 
 h = figure(2);
-h.Position = [379   778   951   552]; legend off
+% h.Position = [379   778   951   552]; 
+% legend off
 
 % Store pressure, volume, and flow values
 p = [pla plv psa psv pra prv ppa psv];
