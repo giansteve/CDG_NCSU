@@ -274,7 +274,7 @@ Xlimits =  [tdc(1) tdc(end)];
 
 figure('Name',strcat('PAT',num2str(PATIENT),'_RES',num2str(RESIDUAL)))
 subplot(3,3,1); hold on;
-plot(tdc,pla,'r','LineWidth',1);
+plot(tdc,pla,'r','LineWidth',1); % plaS: S is for Storage. 
 % set(gca,'FontSize',24);
 ylabel('pla (mmHg)');
 xlim(Xlimits);
